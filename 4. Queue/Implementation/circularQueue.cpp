@@ -7,7 +7,7 @@ using namespace std;
 
 #define MAX 4
 
-int queue[MAX];
+int circularQueue[MAX];
 int front = -1, rear = -1;
 
 void enqueue(int num)
@@ -29,7 +29,7 @@ void enqueue(int num)
     {
         rear++;
     }
-    queue[rear] = num;
+    circularQueue[rear] = num;
 }
 
 void dequeue()
@@ -39,7 +39,7 @@ void dequeue()
         cout << "UNDERFLOW\n";
         return;
     }
-    queue[front] = 0;
+    circularQueue[front] = 0;
     if (front == rear)
         front = rear = -1;
     else if (front == MAX - 1)
@@ -57,7 +57,7 @@ int peek()
     }
     else
     {
-        return queue[front];
+        return circularQueue[front];
     }
 }
 
@@ -71,16 +71,16 @@ void display()
     if (rear >= front)
     {
         for (int i = front; i <= rear; i++)
-            cout << queue[i] << " ";
+            cout << circularQueue[i] << " ";
         cout << "\n";
     }
     else
     {
         for (int i = front; i < MAX; i++)
-            cout << queue[i] << " ";
+            cout << circularQueue[i] << " ";
 
         for (int i = 0; i <= rear; i++)
-            cout << queue[i] << " ";
+            cout << circularQueue[i] << " ";
 
         cout << endl;
     }
