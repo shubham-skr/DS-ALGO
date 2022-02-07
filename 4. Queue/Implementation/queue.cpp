@@ -2,7 +2,6 @@
     Implementation of QUEUE
 */
 
-// To throw queue underflow error
 #include <stdexcept>
 
 template <class T>
