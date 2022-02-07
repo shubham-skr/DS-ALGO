@@ -39,7 +39,7 @@ class SinglyLinkedList
         bool search(T);             // Returns true if a node with given data is found  
         int totalNodes();           // Returns total number of node in the linked list 
         void deleteBeg();           // Delete a node from the beginning of the linked list 
-        void deleteEnd();           // Delete a node from the emd of the linked list 
+        void deleteEnd();           // Delete a node from the end of the linked list 
 };
 
 // creates and returns new node of the linked list
