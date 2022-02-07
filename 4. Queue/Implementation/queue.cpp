@@ -14,7 +14,6 @@ private:
     public:
         T data;
         Node *next;
-        Node() : data{}, next(nullptr) {}
         Node(T x) : data(x), next(nullptr) {}
     };
 
