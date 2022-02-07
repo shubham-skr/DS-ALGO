@@ -12,7 +12,7 @@
 #include <iostream>
 
 template <class T>
-class LinkedList
+class CircularLinkedList
 {
 private:
     // Node of the linked list
