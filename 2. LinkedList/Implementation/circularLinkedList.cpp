@@ -1,15 +1,16 @@
 /*
     CIRCULAR LINKED LIST
     - Check if CLL is empty
-    - Display 
+    - Display
     - Insertion at beginning
     - Insertion at end
     - Search for a node
-    - Deletion at beginning 
+    - Deletion at beginning
     - Deletion at end
 */
 
 #include <iostream>
+using namespace std;
 
 template <class T>
 class CircularLinkedList
@@ -46,14 +47,14 @@ public:
 
 // creates and returns new node of the linked list
 template <class T>
-CircularLinkedList<T>::Node *CircularLinkedList<T>::newNode(T val)
+typename CircularLinkedList<T>::Node *CircularLinkedList<T>::newNode(T val)
 {
     Node *ptr = new Node(val);
 
     if (ptr == nullptr)
     {
         cout << "Overflow!!!" << endl;
-        exit(1)
+        exit(1);
     }
 
     return ptr;
@@ -125,9 +126,9 @@ void CircularLinkedList<T>::insertEnd(T val)
     else
     {
         Node *cur = head;
-        while (curr->next != head)
-            curr = curr->next;
-        curr->next = ptr;
+        while (cur->next != head)
+            cur = cur->next;
+        cur->next = ptr;
         ptr->next = head;
     }
 }
@@ -145,7 +146,7 @@ bool CircularLinkedList<T>::search(T val)
     {
         if (val == cur->data)
             return true;
-        curr = curr->next;
+        cur = cur->next;
     }
     if (val == cur->data)
         return true;
@@ -193,8 +194,8 @@ void CircularLinkedList<T>::deleteEnd()
 
     while (cur->next != nullptr)
     {
-        prev = curr;
-        curr = curr->next;
+        prev = cur;
+        cur = cur->next;
     }
 
     prev->next = head;
