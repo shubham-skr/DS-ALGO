@@ -7,7 +7,7 @@
 #include <iostream>
 
 template <class T>
-class LinkedList 
+class SinglyLinkedList 
 {
     private:
         // Node of the linked list 
@@ -28,8 +28,8 @@ class LinkedList
         Node* newNode(T);
 
     public:
-        LinkedList() : head(nullptr) {}
-        ~LinkedList();
+        SinglyLinkedList() : head(nullptr) {}
+        ~SinglyLinkedList();
         bool isEmpty();             // Returns true if list is empty, otherwise false
         void display();             // Traverses and prints the linked list
         void insertBeg(T);          // Inserts a node at the beginning of the linked list
@@ -44,7 +44,7 @@ class LinkedList
 
 // creates and returns new node of the linked list
 template<class T>
-LinkedList<T>::Node* LinkedList<T>::newNode(T val)
+SinglyLinkedList<T>::Node* SinglyLinkedList<T>::newNode(T val)
 {
     Node* ptr = new Node(val);
     
@@ -59,7 +59,7 @@ LinkedList<T>::Node* LinkedList<T>::newNode(T val)
 
 // Returns true if linked list is empty - O(1)
 template<class T>
-bool LinkedList<T>::isEmpty() 
+bool SinglyLinkedList<T>::isEmpty() 
 {
     if (head == nullptr)
         return true;
@@ -69,7 +69,7 @@ bool LinkedList<T>::isEmpty()
 
 // Traverse and print the linked list - O(n)
 template<class T>
-void LinkedList<T>::display()
+void SinglyLinkedList<T>::display()
 {
     if (this->isEmpty())
     {
@@ -89,7 +89,7 @@ void LinkedList<T>::display()
 
 // Inserts the node at the beginning of the linked list - O(1)
 template<class T>
-void LinkedList<T>::insertBeg(T val)
+void SinglyLinkedList<T>::insertBeg(T val)
 {
     Node* ptr = newNode(val);
     ptr->next = head;
@@ -98,7 +98,7 @@ void LinkedList<T>::insertBeg(T val)
 
 // Inserts the node at the end of the linked list - O(n)
 template<class T>
-void LinkedList<T>::insertEnd(T val) 
+void SinglyLinkedList<T>::insertEnd(T val) 
 {
     Node* ptr = newNode(val);
     Node* curr = head;
@@ -117,7 +117,7 @@ void LinkedList<T>::insertEnd(T val)
 
 // Inserts the node before the node with the given data - O(n)
 template<class T>
-void LinkedList<T>::insertBefore(T val, T data) 
+void SinglyLinkedList<T>::insertBefore(T val, T data) 
 {
     if (this->isEmpty() || head->data == data)
     {
@@ -147,7 +147,7 @@ void LinkedList<T>::insertBefore(T val, T data)
 
 // Inserts the node after the node with given data - O(n)
 template<class T>
-void LinkedList<T>::insertAfter(T val, T data) 
+void SinglyLinkedList<T>::insertAfter(T val, T data) 
 {
     if (this->isEmpty() || head->data == data) 
     {
@@ -173,7 +173,7 @@ void LinkedList<T>::insertAfter(T val, T data)
 
 // Returns true if a node with data equals val is found - O(n)
 template<class T>
-bool LinkedList<T>::search(T val) 
+bool SinglyLinkedList<T>::search(T val) 
 {
     if (this->isEmpty()) 
         return false;
@@ -193,7 +193,7 @@ bool LinkedList<T>::search(T val)
 
 // Returns the count of total number of nodes present - O(n)
 template<class T>
-int LinkedList<T>::totalNodes() 
+int SinglyLinkedList<T>::totalNodes() 
 {
     int count = 0;
     Node* curr = head;
@@ -209,7 +209,7 @@ int LinkedList<T>::totalNodes()
 
 // Deletes a node from the beginning of the linked list - O(1)
 template <class T>
-void LinkedList<T>::deleteBeg() 
+void SinglyLinkedList<T>::deleteBeg() 
 {
     if (this->isEmpty()) 
     {
@@ -225,7 +225,7 @@ void LinkedList<T>::deleteBeg()
 
 // Deletes a node from the end of the linked list - O(n) 
 template <class T>
-void LinkedList<T>::deleteEnd() 
+void SinglyLinkedList<T>::deleteEnd() 
 {
     if (this->isEmpty()) 
     {
@@ -256,7 +256,7 @@ void LinkedList<T>::deleteEnd()
 
 // Destructor of the LinkedList class
 template <class T>
-LinkedList<T>::~LinkedList()
+SinglyLinkedList<T>::~SinglyLinkedList()
 {
     Node *temp = nullptr;
     while (head)
