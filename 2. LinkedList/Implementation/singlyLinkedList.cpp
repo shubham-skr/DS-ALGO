@@ -1,10 +1,22 @@
 /*
     SINGLY LINKED LIST 
-            --- Language: C++
+
+    Operations performed:
+    - Check if SLL is empty
+    - Display
+    - Insertion at beginning
+    - Insertion at end
+    - Insertion before a node
+    - Insertion after a node
+    - Search a node
+    - Count total number of nodes
+    - Delete start node
+    - Delete end node
 */
 
 
 #include <iostream>
+using namespace std;
 
 template <class T>
 class SinglyLinkedList 
@@ -44,14 +56,14 @@ class SinglyLinkedList
 
 // creates and returns new node of the linked list
 template<class T>
-SinglyLinkedList<T>::Node* SinglyLinkedList<T>::newNode(T val)
+typename SinglyLinkedList<T>::Node* SinglyLinkedList<T>::newNode(T val)
 {
     Node* ptr = new Node(val);
     
     if (ptr == nullptr)
     {
         cout << "Overflow!!!" << endl;
-        exit(1)
+        exit(1);
     }
 
     return ptr;
