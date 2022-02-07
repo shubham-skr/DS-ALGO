@@ -33,8 +33,8 @@ private:
     Node *newNode(T);
 
 public:
-    LinkedList() : head(nullptr) {}
-    ~LinkedList();
+    CircularLinkedList() : head(nullptr) {}
+    ~CircularLinkedList();
     bool isEmpty();    // Returns true if list is empty, otherwise false
     void display();    // Traverses and prints the linked list
     void insertBeg(T); // Inserts a node at the beginning of the linked list
@@ -46,7 +46,7 @@ public:
 
 // creates and returns new node of the linked list
 template <class T>
-LinkedList<T>::Node *LinkedList<T>::newNode(T val)
+CircularLinkedList<T>::Node *CircularLinkedList<T>::newNode(T val)
 {
     Node *ptr = new Node(val);
 
@@ -61,7 +61,7 @@ LinkedList<T>::Node *LinkedList<T>::newNode(T val)
 
 // Returns true if linked list is empty - O(1)
 template <class T>
-bool LinkedList<T>::isEmpty()
+bool CircularLinkedList<T>::isEmpty()
 {
     if (head == nullptr)
         return true;
@@ -71,7 +71,7 @@ bool LinkedList<T>::isEmpty()
 
 // Traverse and print the linked list - O(n)
 template <class T>
-void LinkedList<T>::display()
+void CircularLinkedList<T>::display()
 {
     if (isEmpty())
     {
@@ -91,7 +91,7 @@ void LinkedList<T>::display()
 
 // Inserts the node at the beginning of the linked list - O(1)
 template <class T>
-void LinkedList<T>::insertBeg(T val)
+void CircularLinkedList<T>::insertBeg(T val)
 {
     Node *ptr = newNode(val);
     if (isEmpty())
@@ -114,7 +114,7 @@ void LinkedList<T>::insertBeg(T val)
 
 // Inserts the node at the end of the linked list - O(n)
 template <class T>
-void LinkedList<T>::insertEnd(T val)
+void CircularLinkedList<T>::insertEnd(T val)
 {
     Node *ptr = newNode(val);
     if (isEmpty)
@@ -134,7 +134,7 @@ void LinkedList<T>::insertEnd(T val)
 
 // Returns true if a node with data equals val is found - O(n)
 template <class T>
-bool LinkedList<T>::search(T val)
+bool CircularLinkedList<T>::search(T val)
 {
     if (isEmpty())
         return false;
@@ -154,7 +154,7 @@ bool LinkedList<T>::search(T val)
 
 // Deletes a node from the beginning of the linked list - O(1)
 template <class T>
-void LinkedList<T>::deleteBeg()
+void CircularLinkedList<T>::deleteBeg()
 {
     if (isEmpty())
     {
@@ -173,7 +173,7 @@ void LinkedList<T>::deleteBeg()
 
 // Deletes a node from the end of the linked list - O(n)
 template <class T>
-void LinkedList<T>::deleteEnd()
+void CircularLinkedList<T>::deleteEnd()
 {
     if (isEmpty())
     {
@@ -203,7 +203,7 @@ void LinkedList<T>::deleteEnd()
 
 // Destructor of the LinkedList class
 template <class T>
-LinkedList<T>::~LinkedList()
+CircularLinkedList<T>::~CircularLinkedList()
 {
     Node *temp = nullptr;
     while (head)
