@@ -30,7 +30,6 @@ private:
         Node *prev; // pointer to the previous node
 
         Node(T val) : data(val), next(nullptr), prev(nullptr) {}
-        Node() : data{}, next(nullptr), prev(nullptr) {}
     };
 
     // points to start of the linked list
