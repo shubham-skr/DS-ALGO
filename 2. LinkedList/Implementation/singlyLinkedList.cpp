@@ -29,7 +29,6 @@ private:
         Node *next; // pointer to the next node
 
         Node(T val) : data(val), next(nullptr) {}
-        Node() : data{}, next(nullptr) {}
     };
 
     // points to start of the linked list
