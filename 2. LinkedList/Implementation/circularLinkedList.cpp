@@ -41,7 +41,7 @@ public:
     void insertEnd(T); // Inserts a node at the end of the linked list
     bool search(T);    // Returns true if a node with given data is found
     void deleteBeg();  // Delete a node from the beginning of the linked list
-    void deleteEnd();  // Delete a node from the emd of the linked list
+    void deleteEnd();  // Delete a node from the end of the linked list
 };
 
 // creates and returns new node of the linked list
