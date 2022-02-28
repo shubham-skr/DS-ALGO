@@ -7,13 +7,11 @@
     4. Heap Sort        : O(nlogn)
     5. Quick Sort       : O(n^2) (Avg: nlogn)
     6. Merge Sort       : O(nlogn)
-    7. Bucket Sort      : O(n + k)
-    8. Radix Sort       : O(nk)
-    9. Count Sort       : O(n + k)
 */
 
-#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
+
 
 class SortingAlgos
 {
