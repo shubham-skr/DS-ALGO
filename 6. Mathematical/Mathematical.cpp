@@ -14,12 +14,10 @@
 
 */
 
-
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long 
-
+#define int long long
 
 // 1. Binary Exponentiation
 int binaryExponentiation(int a, int b)
@@ -38,7 +36,6 @@ int binaryExponentiation(int a, int b)
     return res;
 }
 
-
 // 2. Modular Exponentiation
 int modularExponentiation(int a, int b, int m)
 {
@@ -55,7 +52,6 @@ int modularExponentiation(int a, int b, int m)
 
     return res;
 }
-
 
 // 3. Fast Exponentiation
 int fastExponentiation(int a, int b, int m)
@@ -74,7 +70,6 @@ int fastExponentiation(int a, int b, int m)
     return res;
 }
 
-
 // 4. Prime Checking
 bool checkPrime(int n)
 {
@@ -92,7 +87,6 @@ bool checkPrime(int n)
 
     return isPrime;
 }
-
 
 // 5. Sieve of Eratosthenes
 vector<int> sieve(int n)
@@ -119,7 +113,6 @@ vector<int> sieve(int n)
     return primes;
 }
 
-
 // 6. Prime Factorization
 vector<pair<int, int>> primeFactorization(int n)
 {
@@ -145,76 +138,79 @@ vector<pair<int, int>> primeFactorization(int n)
     return factors;
 }
 
-
 // 7. Segmented Sieve Algorithm
-vector<int> segmentedSieve(int n) {
+vector<int> segmentedSieve(int n)
+{
     const int SIZE = 1000;
-    
+
     vector<int> primes;
     primes = sieve(sqrt(n));
-    
+
     vector<int> resultPrimes;
     vector<char> block(SIZE);
-    
-    for(int k = 0; k*SIZE <= n; k++) {
+
+    for (int k = 0; k * SIZE <= n; k++)
+    {
         block.assign(SIZE, '1');
-        int start = k*SIZE;
-        
-        for(int p : primes) {
+        int start = k * SIZE;
+
+        for (int p : primes)
+        {
             int startIndex = (start + p - 1) / p;
             int j = max(startIndex, p) * p - start;
-            
-            for(; j <  SIZE; j += p)
+
+            for (; j < SIZE; j += p)
                 block[j] = '0';
         }
         if (k == 0)
             block[0] = block[1] = false;
-        
-        for(int i = 0; i < SIZE && start+i <= n; i++) 
+
+        for (int i = 0; i < SIZE && start + i <= n; i++)
             if (block[i] == '1')
-                resultPrimes.push_back(start+i);
+                resultPrimes.push_back(start + i);
     }
 
     return resultPrimes;
 }
 
-
 // 8. Eucledian ALgorithm
-int gcd(int a, int b) {
+int gcd(int a, int b)
+{
     if (b == 0)
         return a;
-    return gcd(b, a%b);
+    return gcd(b, a % b);
 }
 
-
 // 9. Extended Eucledian Algorithm
-pair<int, int> extendedEucleadian(int a, int b) {
-    if (b == 0) 
+pair<int, int> extendedEucleadian(int a, int b)
+{
+    if (b == 0)
         return {1, 0};
-    
-    pair<int, int> res = extendedEucleadian(b, a%b);
+
+    pair<int, int> res = extendedEucleadian(b, a % b);
 
     int x = res.second;
-    int y = res.first - (a/b)*res.second;
+    int y = res.first - (a / b) * res.second;
 
     return {x, y};
 }
 
-
 // 10. Finding Binomial Coefficient
-int binomialCoefficient(int n, int k) {
-    vector<vector<int>> table(n+1, vector<int>(k+1, 0));
+int binomialCoefficient(int n, int k)
+{
+    vector<vector<int>> table(n + 1, vector<int>(k + 1, 0));
 
-    for(int i = 0; i <= n; i++) {
-        for(int j = 0; j <= min(i, k); j++) {
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j <= min(i, k); j++)
+        {
             if (j == 0 || j == i)
                 table[i][j] = 1;
-            else 
-                table[i][j] = table[i-1][j-1] + table[i-1][j];
+            else
+                table[i][j] = table[i - 1][j - 1] + table[i - 1][j];
         }
     }
     return table[n][k];
 }
-
 
 // int32_t main() { return 0; }
