@@ -86,3 +86,4 @@ T Stack<T>::getTop()
 
     return top->data;
 }
+ 
