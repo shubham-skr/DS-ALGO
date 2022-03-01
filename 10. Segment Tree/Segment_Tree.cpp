@@ -5,6 +5,7 @@ SEGMENT TREE
 
 */
 
+
 #include <vector>
 using namespace std;
 
