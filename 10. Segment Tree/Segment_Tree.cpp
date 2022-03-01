@@ -19,7 +19,7 @@ private:
     vector<int> st;
 
     // overloaded functions
-    void build(int, int, int, vector<int> &);
+    void build(vector<int> &, int, int, int);
     int query(int, int, int, int, int);
     void update(int, int, int, int, int);
 
@@ -33,7 +33,7 @@ public:
     // Build the segment tree
     void build(vector<int> &v)
     {
-        build(0, n - 1, 0, v);
+        build(v, 0, n - 1, 0);
     }
 
     // Query for the range l to r
@@ -49,7 +49,7 @@ public:
     }
 };
 
-void SegmentTree::build(int start, int end, int node, vector<int> &v)
+void SegmentTree::build(vector<int> &v, int start, int end, int node)
 {
     // base case - leaf node
     if (start == end)
@@ -61,10 +61,10 @@ void SegmentTree::build(int start, int end, int node, vector<int> &v)
     int mid = (start + end) / 2;
 
     // left subtree is (start, mid)
-    build(start, mid, 2 * node + 1, v);
+    build(v, start, mid, 2 * node + 1);
 
     // right subtree is (mid+1, end)
-    build(mid + 1, end, 2 * node + 2, v);
+    build(v, mid + 1, end, 2 * node + 2);
 
     st[node] = st[2 * node + 1] + st[2 * node + 2];
 }
