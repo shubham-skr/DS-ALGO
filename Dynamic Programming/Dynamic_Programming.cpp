@@ -108,12 +108,106 @@ void E_knapsack2(vector<int> &wt, vector<int> &val, int W)
     }
 }
 
+int F_lcs(string s1, string s2, int n, int m)
+{
+    int dp[m + 1][n + 1]{};
+
+    for (int i = 0; i <= m; i++)
+    {
+        for (int j = 0; j <= n; j++)
+        {
+            if (i == 0 || j == 0)
+                dp[i][j] = 0;
+
+            else if (s1[i - 1] == s2[j - 1])
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+
+            else
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+        }
+    }
+
+    return dp[m][n];
+}
+
+int G_longestPath(vector<vector<int>> &adj, vector<int> memo, int cur)
+{
+    if (memo[cur] != -1)
+        return memo[cur];
+
+    int ans = -1;
+    for (auto x : adj[cur])
+    {
+        ans = max(ans, G_longestPath(adj, memo, x)) + 1;
+    }
+
+    return ans;
+}
+
+int H_grid(vector<string> grid, int n, int m, int H, int W)
+{
+    int mod = 1e9 + 7;
+
+    int dp[n][m]{};
+
+    for (int i = 0; i < H; i++)
+    {
+        for (int j = 0; j < W; j++)
+        {
+            if (grid[i][j] == '#')
+            {
+                dp[i][j] = 0;
+                continue;
+            }
+
+            if (i == 0 && j == 0)
+                dp[i][j] = 1;
+            else if (i == 0)
+                dp[i][j] = dp[i][j - 1];
+            else if (j == 0)
+                dp[i][j] = dp[i - 1][j];
+            else
+            {
+                dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
+                dp[i][j] %= mod;
+            }
+        }
+    }
+
+    return dp[H - 1][W - 1];
+}
+
+double I_coins(vector<double> prob, int n)
+{
+    double dp[n + 1][n + 1]{}; // rows = Heads, column = Tails
+
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j <= n; j++)
+        {
+            if (i + j > n)
+                break;
+
+            if (i == 0 && j == 0)
+                dp[i][j] = 1;
+            else if (i == 0)
+                dp[i][j] = (1 - prob[i + j - 1]) * dp[i][j - 1];
+            else if (j == 0)
+                dp[i][j] = prob[i + j - 1] * dp[i - 1][j];
+            else
+                dp[i][j] = (1 - prob[i + j - 1]) * dp[i][j - 1] + prob[i + j - 1] * dp[i - 1][j];
+        }
+    }
+
+    double ans = 0;
+    for(int i = n/2+1; i <= n; i++) 
+        ans += dp[i][n-i];
+
+    return ans;
+}
+
 int main()
 {
-    vector<int> val = {60, 100, 120};
-    vector<int> wt = {10, 20, 30};
-    int W = 50;
-    int n = 3;
-
-    E_knapsack2(wt, val, W);
+    vector<double> prob = { 0.30, 0.60, 0.80 };
+    cout << I_coins(prob, 3) << endl;
 }
