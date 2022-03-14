@@ -10,7 +10,6 @@ vector<int> dist, parent;
 vector<bool> visited;
 int n;
 
-
 // 1. Depth First Search
 void dfs(int u)
 {
@@ -26,7 +25,6 @@ void dfs(int u)
         }
     }
 }
-
 
 // 2. Breadth First Search
 void bfs(int s)
