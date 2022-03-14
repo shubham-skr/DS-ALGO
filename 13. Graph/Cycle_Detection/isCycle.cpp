@@ -7,6 +7,7 @@ using namespace std;
 
 vector<vector<int>> adj;
 
+
 bool isCycleUtil(int u, vector<bool> &visited, vector<bool> &recursionStack)
 {
     if (visited[u] == false)
@@ -26,6 +27,7 @@ bool isCycleUtil(int u, vector<bool> &visited, vector<bool> &recursionStack)
     recursionStack[u] = false;
     return false;
 }
+
 
 bool isCycle(int n)
 {
