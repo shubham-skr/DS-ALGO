@@ -33,7 +33,7 @@ int main()
 
     while (!stk.empty())
     {
-        cout << stk.top() << " ";
+        cout << stk.top() << "  ";
         stk.pop();
     }
     cout << endl;
