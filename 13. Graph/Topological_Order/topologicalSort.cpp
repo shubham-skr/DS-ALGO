@@ -19,22 +19,29 @@ void topologicalOrder(int u, stack<int> &stk)
 
 int main()
 {
-    adj.resize(4);
+    int n = 4;
+    adj.resize(n);
     adj[0] = {1, 2};
     adj[1] = {3};
     adj[2] = {3};
     adj[3] = {};
 
-    visited.resize(4, false);
+    visited.resize(n, false);
 
     stack<int> stk;
 
-    topologicalOrder(0, stk);
+    for (int i = 0; i < n; i++)
+    {
+        if (!visited[i])
+            topologicalOrder(0, stk);
+    }
 
     while (!stk.empty())
     {
-        cout << stk.top() << "  ";
+        cout << stk.top() << " ";
         stk.pop();
     }
     cout << endl;
+
+    return 0;
 }
