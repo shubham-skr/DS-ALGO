@@ -150,3 +150,4 @@ void SegmentTree::update(int start, int end, int node, int l, int r, int value)
 
     st[node] = st[2 * node + 1] + st[2 * node + 2];
 }
+
