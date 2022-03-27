@@ -1,6 +1,6 @@
 /*
-**  FENWICK TREE (BINARY INDEXED TREE)
-        - for prefix sum queries and update
+    FENWICK TREE (BINARY INDEXED TREE)
+        for prefix sum queries and update
 */
 
 #include <vector>
