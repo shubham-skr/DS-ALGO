@@ -1,6 +1,6 @@
 /*
 	Finding Strongly Connected Component
-	- Kosaraju's Algorithm
+	- Kosaraju Algorithm
 */
 
 #include <iostream>
@@ -43,6 +43,9 @@ int main()
 	int V, E;
 	cin >> V >> E;
 
+	adj.resize(V);
+	adjRev.resize(V);
+
 	for (int i = 0; i < E; i++)
 	{
 		int x, y;
@@ -60,14 +63,15 @@ int main()
 	}
 	reverse(order.begin(), order.end());
 
-	visited.resize(V, false);
+	visited.assign(V, false);
 
 	for (auto v : order)
 	{
 		if (!visited[v])
+		{
 			dfsRev(v);
-
-		scc.push_back(component);
-		component.clear();
+			scc.push_back(component);
+			component.clear();
+		}
 	}
 }
