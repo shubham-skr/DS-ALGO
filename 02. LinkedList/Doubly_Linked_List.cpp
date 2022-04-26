@@ -1,5 +1,6 @@
 /*
-    DOUBLY LINKED LIST
+   
+   DOUBLY LINKED LIST
 
     Operations performed:
     - Check if DLL is empty
@@ -12,6 +13,7 @@
     - Count total number of nodes
     - Delete start node
     - Delete end node
+    
 */
 
 #include <iostream>
