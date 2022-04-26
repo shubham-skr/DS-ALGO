@@ -1,5 +1,6 @@
 /*
-    BitManipulation
+
+BitManipulation
 
     - Get ith bit
     - Clear ith bit
